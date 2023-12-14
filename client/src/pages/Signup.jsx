@@ -8,8 +8,8 @@ export const Signup = () => {
   const navigate = useNavigate()
   const handleChange = (e) => {
     setForData({...formData, [e.target.id]: e.target.value})
-  }
-  
+  } 
+
   const handleSubmit = async (e) => {
    
     try {

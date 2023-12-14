@@ -9,13 +9,7 @@ import cors from 'cors';
 const app = express(); 
 DBconn() ;
 app.use(express.json());
-// const corsOptions ={
-//     origin:'*',  
-//     credentials:true,            //access-control-allow-credentials:true
-//     optionSuccessStatus:200,
-//  }
- 
- app.use(cors())
+app.use(cors())
 
 
 app.listen((PORT), ()=>{
@@ -25,3 +19,12 @@ app.listen((PORT), ()=>{
 app.use('/api/user', useUserRouter)
 app.use('/api/auth', useAuthRouter)
 
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'Internal Server Error';
+    return res.status(statusCode).json({
+      success: false,
+      message,
+      statusCode,
+    });
+  });
