@@ -2,11 +2,11 @@ import express from 'express';
 import dotenv from 'dotenv';
 import { DBconn } from './db/db-conn.js';
 dotenv.config();
-const PORT = process.env.PORT || 30001;
+const PORT = process.env.PORT || 3001;
 import useUserRouter from './routes/user.route.js';
 import useAuthRouter from './routes/auth.route.js';
 import cors from 'cors';
-const app = express(); 
+const app = express();  
 DBconn() ;
 app.use(express.json());
 app.use(cors())
