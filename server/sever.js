@@ -6,10 +6,12 @@ const PORT = process.env.PORT || 3001;
 import useUserRouter from './routes/user.route.js';
 import useAuthRouter from './routes/auth.route.js';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 const app = express();  
 DBconn() ;
 app.use(express.json());
 app.use(cors())
+app.use(cookieParser());
 
 
 app.listen((PORT), ()=>{
